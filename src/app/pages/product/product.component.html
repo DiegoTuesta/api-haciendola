@@ -1,0 +1,115 @@
+<app-layout></app-layout>
+<main class="container">
+  <section>
+    <div class="section__title">
+
+      <button class="btn btn-md btn-outline-primary" (click)="goBack()" >back</button>
+    </div>
+  </section>
+  <section>
+    <form class="form" (ngSubmit)="updateProduct()" [formGroup]="formEdit" >
+        <h2>Edit Product</h2>
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput
+                   placeholder="enter.."
+                   formControlName="title"
+                   type="text"
+                   minlength="6"
+                   required>
+            @if (formEdit.get("title")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field>
+          <div style="width: 100%;">
+            <textarea
+              style="width: 100%;"
+              placeholder="description"
+              formControlName="description"
+              rows="5"
+              required
+            ></textarea>
+            @if (formEdit.get("description")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </div>
+
+          <!-- <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput
+                   placeholder="enter.."
+                   formControlName="description"
+                  
+                   required>
+            @if (formEdit.get("description")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field> -->
+
+          <mat-form-field>
+            <mat-label>Grams</mat-label>
+            <input matInput
+                  
+                   formControlName="grams"
+                   type="number"
+                   required>
+            @if (formEdit.get("grams")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Stock</mat-label>
+           <input matInput
+                  
+                   formControlName="stock"
+                   type="number"
+                   
+                   required>
+            @if (formEdit.get("stock")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput
+               
+                   formControlName="price"
+                   type="number"
+                   required>
+            @if (formEdit.get("price")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Price compare</mat-label>
+            <input matInput
+                  
+                   formControlName="priceCompare"
+                   type="number"
+                   required>
+            @if (formEdit.get("priceCompare")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field>
+          <div>
+              <input id="sta" style="margin-bottom: 10px;" type="checkbox" formControlName="status" >
+                <label for="sta">Status</label>
+          </div>
+          <!-- <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input matInput
+                   formControlName="status"
+                   type="checkbox"
+                   required>
+            @if (formEdit.get("status")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+          </mat-form-field> -->
+         
+          <button mat-raised-button color="primary" type="submit" [disabled]="formEdit.invalid">Save</button>
+    
+    </form>
+  </section>
+</main>

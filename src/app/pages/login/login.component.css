@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column; gap: 15px;
+}
+form h2{
+  text-align: center;
+}
+
+.mda{
+  background-size: cover;
+}

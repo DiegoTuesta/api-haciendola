@@ -1,0 +1,27 @@
+main{
+    padding: 20px 10px;
+}
+
+.section__title{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.form{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 769px) {
+    .section__title{
+        display: flex;
+        flex-direction: row;
+        gap:0;
+        justify-content: space-between;
+    }
+    main{
+        padding: 20px 0px;
+    }
+}

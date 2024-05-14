@@ -1,0 +1,46 @@
+
+<div
+class="mda"
+[style.background-image]="backgroundImageUrl"
+    style="display: flex; align-items: center; justify-content: center; height: 100vh;"
+>
+    
+    <form (ngSubmit)="onLogin()" [formGroup]="formLogin" >
+        <h2>Iniciar Sesión</h2>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput
+                   placeholder="pat@example.com"
+                   formControlName="email"
+                   type="text"
+                   
+                   required>
+            @if (formLogin.get("email")?.errors?.['required']) {
+              <mat-error>Requerido</mat-error>
+            }
+            @if (formLogin.get("email")?.errors?.['email']) {
+                <mat-error>Email inválido</mat-error>
+              }
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input matInput
+            minlength="6"
+            maxlength="7"
+            formControlName="password"
+             required 
+             [type]="hide ? 'password' : 'text'"
+             
+             >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if (formLogin.get("password")?.errors?.['required']) {
+                <mat-error>Requerido</mat-error>
+              }
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="formLogin.invalid">Login</button>
+    
+    </form>
+</div>
+
